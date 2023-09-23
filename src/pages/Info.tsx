@@ -1,18 +1,28 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import { useAppDispatch } from "../store/storeHooks";
+import { useAppDispatch, useAppSelector } from "../store/storeHooks";
 import { updateForm } from "../store/formSlice";
+
 interface FormInputs {
     name: string;
     emailAddress: string;
     phoneNumber: string;
 }
 const Info = () => {
+    const name = useAppSelector((state) => state.form.name);
+    const emailAddress = useAppSelector((state) => state.form.emailAddress);
+    const phoneNumber = useAppSelector((state) => state.form.phoneNumber);
     const {
         register,
         handleSubmit,
         formState: { errors },
-    } = useForm<FormInputs>();
+    } = useForm<FormInputs>({
+        defaultValues: {
+            name: name,
+            emailAddress: emailAddress,
+            phoneNumber: phoneNumber,
+        },
+    });
 
     const navigate = useNavigate();
     const dispatch = useAppDispatch();

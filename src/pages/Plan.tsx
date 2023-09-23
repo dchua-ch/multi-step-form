@@ -1,6 +1,6 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import { useAppDispatch } from "../store/storeHooks";
+import { useAppDispatch, useAppSelector } from "../store/storeHooks";
 import { updateForm } from "../store/formSlice";
 
 interface FormInputs {
@@ -8,11 +8,20 @@ interface FormInputs {
     billingFrequency: string;
 }
 const Plan = () => {
+    const plan = useAppSelector((state) => state.form.plan);
+    const billingFrequency = useAppSelector(
+        (state) => state.form.billingFrequency
+    );
     const {
         register,
         handleSubmit,
         formState: { errors },
-    } = useForm<FormInputs>();
+    } = useForm<FormInputs>({
+        defaultValues: {
+            plan: plan,
+            billingFrequency: billingFrequency,
+        },
+    });
 
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
@@ -50,7 +59,11 @@ const Plan = () => {
                     />
                     <label htmlFor="Pro"> Pro, $15/month</label>
                 </div>
-                {errors.plan && <span style={{color:"red"}}>This field is required.</span>}
+                {errors.plan && (
+                    <span style={{ color: "red" }}>
+                        This field is required.
+                    </span>
+                )}
                 <div>
                     <h2>Billing Frequency</h2>
                     <div>
@@ -73,7 +86,11 @@ const Plan = () => {
                         />
                         <label htmlFor="yearly"> Yearly</label>
                     </div>
-                    {errors.billingFrequency && <span style={{color:"red"}}>This field is required.</span>}
+                    {errors.billingFrequency && (
+                        <span style={{ color: "red" }}>
+                            This field is required.
+                        </span>
+                    )}
                 </div>
                 <button onClick={() => navigate("/info")}>Go back</button>
                 <button type="submit">Next Step</button>

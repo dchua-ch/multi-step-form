@@ -1,13 +1,16 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import { useAppDispatch } from "../store/storeHooks";
+import { useAppDispatch, useAppSelector } from "../store/storeHooks";
 import { updateForm } from "../store/formSlice";
 interface FormInputs {
     addOns: string[];
 }
 
 const AddOns = () => {
-    const { register, handleSubmit } = useForm<FormInputs>();
+    const addOns = useAppSelector((state) => state.form.addOns);
+    const { register, handleSubmit } = useForm<FormInputs>({
+        defaultValues: { addOns: addOns },
+    });
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
     const onSubmit: SubmitHandler<FormInputs> = (data) => {
