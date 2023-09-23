@@ -14,7 +14,7 @@ const Summary = () => {
                 {form.plan} ({form.billingFrequency})
             </div>
             {form.addOns?.map((addOn) => (
-                <div>{addOn}</div>
+                <div key = {addOn}>{addOn}</div>
             ))}
             <button onClick={()=>navigate("/addons")}>Go Back</button>
             <button onClick={handleSubmit}>Confirm</button>
