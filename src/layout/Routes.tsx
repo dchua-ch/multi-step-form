@@ -6,34 +6,34 @@ import Plan from "../pages/Plan";
 import Summary from "../pages/Summary";
 import AddOns from "../pages/AddOns";
 type Route = {
-    name?:string,
+    name: string;
+    path: string; // make path required
 } & RouteObject;
 
 const childRoutes: Route[] = [
- 
     {
         path: "/info",
-        element: <Info/>,
-        name: "Info",
+        element: <Info />,
+        name: "Your Info",
     },
     {
         path: "/plan",
-        element: <Plan/>,
-        name: "Plan"
+        element: <Plan />,
+        name: "Select Plan",
     },
     {
         path: "/addons",
-        element: <AddOns/>,
-        name: "Add-ons"
+        element: <AddOns />,
+        name: "Add-ons",
     },
     {
         path: "/summary",
-        element: <Summary/>,
-        name: "Summary"
-    }
+        element: <Summary />,
+        name: "Summary",
+    },
 ];
 
-const routes: Route[] = [
+const routes: RouteObject[] = [
     {
         path: "/",
         element: <Root />,
@@ -42,6 +42,4 @@ const routes: Route[] = [
     },
 ];
 
-
-
-export { routes,childRoutes };
+export { routes, childRoutes };

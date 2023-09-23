@@ -1,15 +1,18 @@
 import { Outlet } from "react-router-dom";
 import { childRoutes } from "./Routes";
+import NavBarElement from "../components/NavBarElement";
 export default function Root() {
     return (
         <>
             <div id="sidebar">
                 <nav>
                     <ul>
-                        {childRoutes.map((route) => (
-                            <li>
-                                <a href={route.path}>{route.name}</a>
-                            </li>
+                        {childRoutes.map((route, index) => (
+                            <NavBarElement
+                                index={index + 1} //switch from 0-based to 1-based indexing
+                                name={route.name}
+                                path={route.path}
+                            />
                         ))}
                     </ul>
                 </nav>
