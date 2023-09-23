@@ -28,7 +28,7 @@ const Plan = () => {
                         name="billing_frequency"
                         value="monthly"
                     />
-                    <label htmlFor="monthlu"> Monthly</label>
+                    <label htmlFor="monthly"> Monthly</label>
                 </div>
 
                 <div>
