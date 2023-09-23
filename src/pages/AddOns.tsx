@@ -2,8 +2,9 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../store/storeHooks";
 import { updateForm } from "../store/formSlice";
+export type addOn = 'Online service' | 'Larger storage' | 'Customizable profile';
 interface FormInputs {
-    addOns: string[];
+    addOns: addOn[];
 }
 
 const AddOns = () => {
@@ -28,7 +29,7 @@ const AddOns = () => {
                 <div>
                     <input
                         type="checkbox"
-                        value="online_service"
+                        value="Online service"
                         {...register("addOns")}
                     />
                     <label htmlFor="online_service">Online service</label>
@@ -36,7 +37,7 @@ const AddOns = () => {
                 <div>
                     <input
                         type="checkbox"
-                        value="larger_storage"
+                        value="Larger storage"
                         {...register("addOns")}
                     />
                     <label htmlFor="online_service">Larger storage</label>
@@ -44,7 +45,7 @@ const AddOns = () => {
                 <div>
                     <input
                         type="checkbox"
-                        value="customizable_profile"
+                        value="Customizable profile"
                         {...register("addOns")}
                     />
                     <label htmlFor="online_service">Customizable Profile</label>

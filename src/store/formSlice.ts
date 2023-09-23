@@ -1,4 +1,6 @@
 import { createSlice,PayloadAction } from "@reduxjs/toolkit";
+import { addOn } from "../pages/AddOns";
+
 
 interface FormState {
     name: string;
@@ -6,7 +8,7 @@ interface FormState {
     phoneNumber: string;
     plan: string;
     billingFrequency: string;
-    addOns: string[];
+    addOns: addOn[];
 }
 const initialState: FormState = {
     name: "",
@@ -14,7 +16,7 @@ const initialState: FormState = {
     phoneNumber: "",
     plan: "",
     billingFrequency: "",
-    addOns: [""],
+    addOns: [],
 };
 
 export const formSlice = createSlice({
