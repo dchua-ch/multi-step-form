@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import { childRoutes } from "./Routes";
 import NavBarElement from "../components/NavBarElement";
 import { v4 as uuid } from "uuid";
+import NavButtons from "../components/NavButtons";
 export default function Root() {
     return (
         <>
@@ -21,6 +22,9 @@ export default function Root() {
             </div>
             <div id="detail">
                 <Outlet />
+            </div>
+            <div>
+                <NavButtons/>
             </div>
         </>
     );
