@@ -12,10 +12,10 @@ export const formSlice = createSlice({
     },
     reducers: {
         updateForm: (state, action) => {
-            state = {
+            return {
                 ...state,
                 ...action.payload
-            }
+            };
         },
     },
 });
