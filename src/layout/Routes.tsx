@@ -1,24 +1,36 @@
 import { RouteObject } from "react-router-dom";
 import Root from "./Root";
 import ErrorPage from "../pages/ErrorPage";
-import App from "../App";
-import Content from "../pages/Content";
-
+import Info from "../pages/Info";
+import Plan from "../pages/Plan";
+import Summary from "../pages/Summary";
+import AddOns from "../pages/AddOns";
 type Route = {
-    name?:string
+    name?:string,
 } & RouteObject;
 
 const childRoutes: Route[] = [
+ 
     {
-        path: "/app",
-        element: <App />,
-        name: "App"
+        path: "/info",
+        element: <Info/>,
+        name: "Info",
     },
     {
-        path: "/content",
-        element: <Content />,
-        name: "Content"
+        path: "/plan",
+        element: <Plan/>,
+        name: "Plan"
     },
+    {
+        path: "/addons",
+        element: <AddOns/>,
+        name: "Add-ons"
+    },
+    {
+        path: "/summary",
+        element: <Summary/>,
+        name: "Summary"
+    }
 ];
 
 const routes: Route[] = [
