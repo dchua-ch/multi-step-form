@@ -1,6 +1,6 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-interface Inputs {
+interface FormInputs {
     name: string;
     emailAddress: string;
     phoneNumber: string;
@@ -10,10 +10,10 @@ const Info = () => {
         register,
         handleSubmit,
         formState: { errors },
-    } = useForm<Inputs>();
+    } = useForm<FormInputs>();
 
     const navigate = useNavigate();
-    const onSubmit: SubmitHandler<Inputs> = (data) => {
+    const onSubmit: SubmitHandler<FormInputs> = (data) => {
         console.log(data);
         navigate("/plan");
     };
