@@ -1,17 +1,19 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { updateForm } from "../store/formSlice";
 interface FormInputs {
-    addOns:string[];
+    addOns: string[];
 }
 
 const AddOns = () => {
-    const {
-        register,
-        handleSubmit,
-    } = useForm<FormInputs>();
+    const { register, handleSubmit } = useForm<FormInputs>();
     const navigate = useNavigate();
+    const dispatch = useDispatch();
     const onSubmit: SubmitHandler<FormInputs> = (data) => {
-        console.log(data);
+        if (data.addOns) {
+            dispatch(updateForm(data));
+        }
         navigate("/summary");
     };
     return (
@@ -44,7 +46,7 @@ const AddOns = () => {
                     />
                     <label htmlFor="online_service">Customizable Profile</label>
                 </div>
-                <button onClick={()=>navigate("/plan")}>Go Back</button>
+                <button onClick={() => navigate("/plan")}>Go Back</button>
                 <button type="submit">Next Step</button>
             </form>
         </>

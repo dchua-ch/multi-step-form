@@ -1,6 +1,6 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux/es/exports";
+import { useDispatch } from "react-redux";
 import { updateForm } from "../store/formSlice";
 interface FormInputs {
     name: string;
@@ -17,7 +17,6 @@ const Info = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const onSubmit: SubmitHandler<FormInputs> = (data) => {
-        console.log(data);
         dispatch(updateForm(data));
         navigate("/plan");
     };
