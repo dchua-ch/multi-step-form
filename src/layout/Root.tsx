@@ -1,7 +1,6 @@
 import { Outlet } from "react-router-dom";
 import { childRoutes } from "./Routes";
 import NavBarElement from "../components/NavBarElement";
-import NavButtons from "../components/NavButtons";
 export default function Root() {
     return (
         <>
@@ -21,9 +20,6 @@ export default function Root() {
             </div>
             <div id="detail">
                 <Outlet />
-            </div>
-            <div>
-                <NavButtons/>
             </div>
         </>
     );
