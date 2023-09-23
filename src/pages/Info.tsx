@@ -40,7 +40,10 @@ const Info = () => {
                 <div>
                     <label htmlFor="name">Name</label>
                     <br />
-                    <input {...register("name", { required: true })}></input>
+                    <input
+                        id="name"
+                        {...register("name", { required: true })}
+                    ></input>
                     {errors.name && (
                         <p style={{ color: "red" }}>This field is required</p>
                     )}
@@ -49,6 +52,7 @@ const Info = () => {
                     <label htmlFor="emailAddress">Email Address</label>
                     <br />
                     <input
+                        id="emailAddress"
                         {...register("emailAddress", { required: true })}
                     ></input>
                     {errors.emailAddress && (
@@ -59,6 +63,7 @@ const Info = () => {
                     <label htmlFor="phoneNumber">Phone Number</label>
                     <br />
                     <input
+                        id="phoneNumber"
                         {...register("phoneNumber", { required: true })}
                     ></input>
                     {errors.phoneNumber && (

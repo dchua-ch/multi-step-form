@@ -30,6 +30,7 @@ const AddOns = () => {
                     <input
                         type="checkbox"
                         value="Online service"
+                        id="online_service"
                         {...register("addOns")}
                     />
                     <label htmlFor="online_service">Online service</label>
@@ -38,17 +39,19 @@ const AddOns = () => {
                     <input
                         type="checkbox"
                         value="Larger storage"
+                        id="larger_storage"
                         {...register("addOns")}
                     />
-                    <label htmlFor="online_service">Larger storage</label>
+                    <label htmlFor="larger_storage">Larger storage</label>
                 </div>
                 <div>
                     <input
                         type="checkbox"
                         value="Customizable profile"
+                        id="customizable_profile"
                         {...register("addOns")}
                     />
-                    <label htmlFor="online_service">Customizable Profile</label>
+                    <label htmlFor="customizable_profile">Customizable Profile</label>
                 </div>
                 <button onClick={() => navigate("/plan")}>Go Back</button>
                 <button type="submit">Next Step</button>

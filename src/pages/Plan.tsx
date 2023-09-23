@@ -39,6 +39,7 @@ const Plan = () => {
                     <input
                         type="radio"
                         value="arcade"
+                        id="arcade"
                         {...register("plan", { required: true })}
                     />
                     <label htmlFor="arcade"> Arcade, $9/month</label>
@@ -47,6 +48,7 @@ const Plan = () => {
                     <input
                         type="radio"
                         value="advanced"
+                        id="advanced"
                         {...register("plan", { required: true })}
                     />
                     <label htmlFor="advanced"> Advanced, $12/month</label>
@@ -54,10 +56,11 @@ const Plan = () => {
                 <div>
                     <input
                         type="radio"
-                        value="Pro"
+                        value="pro"
+                        id="pro"
                         {...register("plan", { required: true })}
                     />
-                    <label htmlFor="Pro"> Pro, $15/month</label>
+                    <label htmlFor="pro"> Pro, $15/month</label>
                 </div>
                 {errors.plan && (
                     <span style={{ color: "red" }}>
@@ -70,6 +73,7 @@ const Plan = () => {
                         <input
                             type="radio"
                             value="monthly"
+                            id="monthly"
                             {...register("billingFrequency", {
                                 required: true,
                             })}
@@ -80,6 +84,7 @@ const Plan = () => {
                         <input
                             type="radio"
                             value="yearly"
+                            id="yearly"
                             {...register("billingFrequency", {
                                 required: true,
                             })}
