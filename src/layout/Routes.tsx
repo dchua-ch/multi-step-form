@@ -1,10 +1,12 @@
 import { RouteObject } from "react-router-dom";
+import { lazy,Suspense } from "react";
 import Root from "./Root";
-import ErrorPage from "../pages/ErrorPage";
-import Info from "../pages/Info";
-import Plan from "../pages/Plan";
-import Summary from "../pages/Summary";
-import AddOns from "../pages/AddOns";
+
+const ErrorPage = lazy(() => import("../pages/ErrorPage"));
+const Info = lazy(() => import("../pages/Info"));
+const Plan = lazy(() => import("../pages/Plan"));
+const Summary = lazy(() => import("../pages/Summary"));
+const AddOns = lazy(() => import("../pages/AddOns"));
 type Route = {
     name: string;
     path: string; // make path required
@@ -13,22 +15,22 @@ type Route = {
 const childRoutes: Route[] = [
     {
         path: "/info",
-        element: <Info />,
+        element: <Suspense fallback="loading..."><Info/></Suspense>,
         name: "Your Info",
     },
     {
         path: "/plan",
-        element: <Plan />,
+        element:<Suspense fallback="loading..."><Plan/></Suspense>,
         name: "Select Plan",
     },
     {
         path: "/addons",
-        element: <AddOns />,
+        element: <Suspense fallback="loading..."><AddOns/></Suspense>,
         name: "Add-ons",
     },
     {
         path: "/summary",
-        element: <Summary />,
+        element:<Suspense fallback="loading..."><Summary/></Suspense>,
         name: "Summary",
     },
 ];
